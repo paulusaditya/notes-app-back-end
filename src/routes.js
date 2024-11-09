@@ -3,20 +3,24 @@ const {
     getAllNotesHandler,
     getNoteByIdHandler,
     editNoteByIdHandler,
-    deleteNoteByIdHandler
-  } = require('./handler');
-
+    deleteNoteByIdHandler,
+} = require('./handler');
 
 const routes = [
     {
-      method: 'POST',
-      path: '/notes',
-      handler: addNoteHandler,
+        method: 'POST',
+        path: '/notes',
+        handler: addNoteHandler,
     },
     {
         method: 'GET',
         path: '/notes',
         handler: getAllNotesHandler,
+    },
+    {
+        method: 'GET',
+        path: '/notes/{id}', // Tambahkan rute ini untuk getNoteByIdHandler
+        handler: getNoteByIdHandler,
     },
     {
         method: 'PUT',
@@ -27,8 +31,7 @@ const routes = [
         method: 'DELETE',
         path: '/notes/{id}',
         handler: deleteNoteByIdHandler,
-      },
-    
-  ];
-   
-  module.exports = routes;
+    },
+];
+
+module.exports = routes;
